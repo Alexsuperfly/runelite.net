@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><meta name="google-site-verification" content="_wxrTRAcgx3bHof630x75_YKSXklUH55NkOAA_5GfmU"><link rel="manifest" href="/manifest.json"><link rel="shortcut icon" href="/favicon.ico"><title>1.2.11 Release - RuneLite</title><meta name="description" content="New 1.2.11 release of RuneLite is out. Notable new features are an awesome Hunter Plugin and support for more potion timers"><meta name="author" content="Tomas"><script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes"></script><script type="text/javascript">!function(i){if(i.search){var l={};i.search.slice(1).split("&").forEach(function(i){var a=i.split("=");l[a[0]]=a.slice(1).join("=").replace(/~and~/g,"&")}),void 0!==l.p&&window.history.replaceState(null,null,i.pathname.slice(0,-1)+(l.p||"")+(l.q?"?"+l.q:"")+i.hash)}}(window.location)</script><link href="/static/css/81.a04f18ec.chunk.css" rel="stylesheet"><link href="/static/css/main.a563b2ad.chunk.css" rel="stylesheet"><script charset="utf-8" src="/static/js/3.aad762e5.chunk.js"></script><script charset="utf-8" src="/static/js/14.a77265c6.chunk.js"></script></head><body><div id="root"><div style="height: 100%;"><div class="fixed-top animated loader" style="display: none;"></div><nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white"><a class="navbar-brand" activeclassname="active" href="/"><img src="/img/logo.png" class="icon" alt="RuneLite"> Home</a><input type="checkbox" id="navbar-check-box"><label for="navbar-check-box" class="navbar-toggler"><span class="navbar-toggler-icon"></span></label><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" activeclassname="active" href="/features"><i class="fas fa-cogs"></i> Features</a></li><li class="nav-item"><a class="nav-link" activeclassname="active" href="/blog"><i class="fas fa-newspaper"></i> Blog</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/runelite/runelite/wiki"><i class="fas fa-file-alt"></i> Wiki</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown"><i class="fas fa-font"></i> API</a><div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item" href="https://static.runelite.net/api/runelite-api/">RuneLite API</a><a class="dropdown-item" href="https://static.runelite.net/api/runelite-client/">RuneLite Client API</a></div></li><li class="nav-item"><a class="nav-link" activeclassname="active" href="/tag"><i class="fas fa-code"></i> Tags</a></li></ul><ul class="navbar-nav ml-auto"><li class="nav-item"><a class="nav-link" href="https://discord.gg/mePCs8U" title="Discord"><i class="fab fa-discord"></i><span class="d-lg-none"> Discord</span></a></li><li class="nav-item"><a class="nav-link" href="https://twitter.com/RuneLiteClient" title="Twitter"><i class="fab fa-twitter"></i><span class="d-lg-none"> Twitter</span></a></li><li class="nav-item"><a class="nav-link" href="https://github.com/runelite" title="GitHub"><i class="fab fa-github"></i><span class="d-lg-none"> GitHub</span></a></li><li class="nav-item"><a class="nav-link" href="https://www.patreon.com/runelite"><i class="fab fa-patreon"></i> Become a patron</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/runelite/runelite/stargazers"><i class="fas fa-star"></i>  Stargazers</a></li><li class="nav-item"><form class="form-inline"><button class="btn btn-primary" type="button"><i class="fas fa-user"></i> Login</button></form></li></ul></div></nav><div class="container" id="layout"><h1>1.2.11 Release</h1><p class="text-muted">last year by Tomas</p><hr><div class="markdown-body"><div><p>In this release we made a lot of improvements to client source, performance and
+overall stability of the client. But there are few new features that are
+definitely worth mentioning.</p>
+<p>First, and the biggest one is <strong>Hunter</strong> plugin (thanks to
+<a href="https://github.com/RobinWeymans">@RobinWeymans</a>). Hunter plugin will show you
+state of your traps and also time until they will break. That should improve
+your overall hunting experience (and makes the terrible skill less terrible).
+Here is small preview:</p>
+<p><img src="/img/blog/1.2.11-Release/hunterplugin.png" alt="hunter-plugin"></p>
+<p>We also added support for some missing potions for the <strong>Timers</strong> plugin, and that
+also includes the newest released potion, Super Antifire Potion.</p>
+<p><img src="/img/blog/1.2.11-Release/newtimers.png" alt="newtimers"></p>
+<p>And last feature on the list is support for <strong>native window decorations</strong>. That
+means now you have option to let your window manager handle the window
+decorations (title bar, window borders). Here is small preview using my window
+manager (bspwm) without any window borders:</p>
+<p><img src="/img/blog/1.2.11-Release/nativewindow.png" alt="native-window"></p>
+<p>As I said in the beginning of the post, we made a lot of improvements to the
+client source code (mainly decoupling), so if you are bored Java developer
+looking for project to contribute to, you are always welcome!</p>
+<p>Hopefully you will like the new release, enjoy!</p>
+<p>~ Tomas</p>
+<h3 id="new-commits">New commits</h3>
+<p>We had 15 contributors this release!</p>
+<pre><code>Abex (1):
+      client: Add option to disable custom window chrome/style
+
+Adam (30):
+      Skip archetype test by default
+      cache: default index data to protocol 6
+      runelite-api: add equipment inventory slot id, inventory id, logout widget and chat message type 7
+      cache: fix writeBigSmart
+      cache: fix readBigSmart
+      cache: fix readString to not sign extend negative values
+      cache: rename some fields of object and interface
+      cache: lombok definitions
+      cache: add a few more write* to outputstream
+      cache: add savers
+      cache: add map and location definition, convert Region loading to use it
+      cache: split cache client and server into their own projects
+      runelite-proxy: subtree split into separate repository
+      cache: disable map image dumper test
+      cache: also disable map dumper test
+      runelite-client: move infoboxes back to top left
+      runelite-client: always render tooltips on top
+      cache test: get tmpdir from a system property
+      injector: allow method hooking to end of methods with multiple returns
+      Consistently capitalize RuneLite
+      Update logo
+      xp tracker: reset on world hop and on logging in
+      xp tracker: remove unused import
+      runelite-client: fix --no-rs
+      dev tools: draw over everything
+      http-service: fix item price cache to use fetched time instead of price time
+      http-service: remove junit/mockito dependencies since spring pulls them in
+      http-service: disable default cache control provided by spring-security
+      http-service: add cache control to item price
+      http-service: change item price cache to 30 minutes
+
+Alexander (2):
+      Fall back to default font for glyphs not in the custom font
+      ExaminePlugin: Make sure widget children array index is valid
+
+Devin (3):
+      Add fight cave plugin config
+      Update fight cave plugin overlay
+      Update zulrah plugin overlay
+
+Devin French (1):
+      Combine BOTTOM_RIGHT and ABOVE_CHATBOX_RIGHT overlays for fixed mode
+
+Julian Tith (1):
+      Add craft spinning animation ID and idle notification
+
+Max Weber (1):
+      runelite-client: add ConfigItem.warnOnDisable and warnOnEnable to configure when confirmationWarning is shown
+
+Onvo (6):
+      New MenuActions related to the hunter plugin
+      Add Widget.contains point
+      Add GameObjectsChanged event
+      Make ground items overlay use new Widget.contains
+      Add hunter plugin
+      Add colors for impling types
+
+Runelite auto updater (2):
+      [maven-release-plugin] prepare for next development iteration
+      [maven-release-plugin] prepare release runelite-parent-1.2.11
+
+SomeoneWithAnInternetConnection (5):
+      Actually fix example plugin archetype
+      Add tests for archetype-plugin compilability
+      Reduce clearRect calls to improve framerate
+      Prevent cursor icon from getting stuck as the wrong shape
+      Slayer plugin - fix "count on items" feature
+
+Tomas Slusny (20):
+      Fix OkHttp connection leaks on connection error
+      Change UIManager defaults to use OSRS font
+      Change XP tracker button to use image
+      Simplify navigation button code
+      Move IconTextField to Hiscore plugin
+      Normalize plugin panel display
+      Change Notifier to be injectable service
+      Extract session-related logic to SessionManager
+      Extract runQuery to QueryRunner service
+      Move creation of client to RuneLite
+      Move setTitle to ClientUI
+      Move creation of tray icon to ClientUI
+      Cleanup RuneLite class fields
+      Move creation of UI to ClientUI class
+      Remove unnecessary null checks for game client
+      Show account and config plugins when outdated
+      Change warning for not found task to debug
+      Add support for super antifire potion
+      Add Antidote++ timer to TimerPlugin
+      Improve clan rank caching
+
+UniquePassive (10):
+      Don't NPE when Player name is null
+      Expand the hiscore panel when looking up players
+      Fix BackgroundComponent's background overflow
+      Fix previous result not being cleared in hiscore plugin
+      Fix ground items not being toggleable
+      Fix the UI freezing when refreshing widgets in the Dev Tools
+      runescape-client: Rename RSCanvas to GameCanvas
+      runescape-client: Rename RSSocket to GameSocket
+      Add a world list lookup client
+      Add world types
+
+Unmoon (4):
+      Ground Items - Fix alch value not applying to whole stack
+      Ground Items - Fix coins not having value
+      Ground Items - Fix quantity in high alch value display
+      Ground Items - Always show highlighted items
+
+kokkue (1):
+      idle plugin: add ornament dragon pickaxe
+
+noremac201 (11):
+      Added missing skilling skills from boosts overlay. Reordered from left to right and up to down.
+      Add new overlay position for above right side of chatbox
+      Change attack style plugin to use overlay position ABOVE_CHATBOX_RIGHT
+      Added ProgressBar Component
+      Modified PanelComponent to hold a ProgressBarComponent
+      Updated XpGlobes to use new Components
+      Fixed setStroke not being reset in Graphics object
+      Added ReportButton Widget to api
+      Added Report Button Utilities Plugin
+      Fixed attackStyle not being correct without configChangeEvent
+      Fixed type 20 attack weapon styles
+
+utsukami (1):
+      Fixes idle notifications occurring when they shouldn't (interacting with bankers/players). See #282
+</code></pre></div></div><div><hr>Developed with <i class="fas fa-heart"></i> and <i class="fas fa-coffee"></i> using <a href="https://getbootstrap.com/">Bootstrap</a>, <a href="https://reactjs.org/">React</a> and <a href="https://fontawesome.com/">Font Awesome</a><a href="http://localhost:8000/atom.xml" class="float-right"><i class="fas fa-rss"></i> Subscribe via RSS</a></div></div></div></div><script>!function(o){function e(e){for(var c,f,d=e[0],t=e[1],r=e[2],n=0,a=[];n<d.length;n++)f=d[n],b[f]&&a.push(b[f][0]),b[f]=0;for(c in t)Object.prototype.hasOwnProperty.call(t,c)&&(o[c]=t[c]);for(s&&s(e);a.length;)a.shift()();return i.push.apply(i,r||[]),u()}function u(){for(var e,c=0;c<i.length;c++){for(var f=i[c],d=!0,t=1;t<f.length;t++){var r=f[t];0!==b[r]&&(d=!1)}d&&(i.splice(c--,1),e=l(l.s=f[0]))}return e}var f={},a={83:0},b={83:0},i=[];function l(e){if(f[e])return f[e].exports;var c=f[e]={i:e,l:!1,exports:{}};return o[e].call(c.exports,c,c.exports,l),c.l=!0,c.exports}l.e=function(i){var e=[];a[i]?e.push(a[i]):0!==a[i]&&{9:1,10:1,11:1}[i]&&e.push(a[i]=new Promise(function(e,d){for(var c="static/css/"+({}[i]||i)+"."+{1:"31d6cfe0",2:"31d6cfe0",3:"31d6cfe0",4:"31d6cfe0",5:"31d6cfe0",6:"31d6cfe0",7:"31d6cfe0",8:"31d6cfe0",9:"beb37d2a",10:"48fa9863",11:"6ddb3536",12:"31d6cfe0",13:"31d6cfe0",14:"31d6cfe0",15:"31d6cfe0",16:"31d6cfe0",17:"31d6cfe0",18:"31d6cfe0",19:"31d6cfe0",20:"31d6cfe0",21:"31d6cfe0",22:"31d6cfe0",23:"31d6cfe0",24:"31d6cfe0",25:"31d6cfe0",26:"31d6cfe0",27:"31d6cfe0",28:"31d6cfe0",29:"31d6cfe0",30:"31d6cfe0",31:"31d6cfe0",32:"31d6cfe0",33:"31d6cfe0",34:"31d6cfe0",35:"31d6cfe0",36:"31d6cfe0",37:"31d6cfe0",38:"31d6cfe0",39:"31d6cfe0",40:"31d6cfe0",41:"31d6cfe0",42:"31d6cfe0",43:"31d6cfe0",44:"31d6cfe0",45:"31d6cfe0",46:"31d6cfe0",47:"31d6cfe0",48:"31d6cfe0",49:"31d6cfe0",50:"31d6cfe0",51:"31d6cfe0",52:"31d6cfe0",53:"31d6cfe0",54:"31d6cfe0",55:"31d6cfe0",56:"31d6cfe0",57:"31d6cfe0",58:"31d6cfe0",59:"31d6cfe0",60:"31d6cfe0",61:"31d6cfe0",62:"31d6cfe0",63:"31d6cfe0",64:"31d6cfe0",65:"31d6cfe0",66:"31d6cfe0",67:"31d6cfe0",68:"31d6cfe0",69:"31d6cfe0",70:"31d6cfe0",71:"31d6cfe0",72:"31d6cfe0",73:"31d6cfe0",74:"31d6cfe0",75:"31d6cfe0",76:"31d6cfe0",77:"31d6cfe0",78:"31d6cfe0",79:"31d6cfe0",80:"31d6cfe0",82:"31d6cfe0"}[i]+".chunk.css",t=l.p+c,f=document.getElementsByTagName("link"),r=0;r<f.length;r++){var n=(o=f[r]).getAttribute("data-href")||o.getAttribute("href");if("stylesheet"===o.rel&&(n===c||n===t))return e()}var a=document.getElementsByTagName("style");for(r=0;r<a.length;r++){var o;if((n=(o=a[r]).getAttribute("data-href"))===c||n===t)return e()}var u=document.createElement("link");u.rel="stylesheet",u.type="text/css",u.onload=e,u.onerror=function(e){var c=e&&e.target&&e.target.src||t,f=new Error("Loading CSS chunk "+i+" failed.\n("+c+")");f.request=c,d(f)},u.href=t,document.getElementsByTagName("head")[0].appendChild(u)}).then(function(){a[i]=0}));var f=b[i];if(0!==f)if(f)e.push(f[2]);else{var c=new Promise(function(e,c){f=b[i]=[e,c]});e.push(f[2]=c);var d,t=document.getElementsByTagName("head")[0],r=document.createElement("script");r.charset="utf-8",r.timeout=120,l.nc&&r.setAttribute("nonce",l.nc),r.src=l.p+"static/js/"+({}[i]||i)+"."+{1:"ded1b37c",2:"37a9c814",3:"aad762e5",4:"7fb8d4b5",5:"581e16ca",6:"3cb62324",7:"0a37191a",8:"cd49c6d7",9:"9db7924d",10:"9dec2875",11:"a6f4020d",12:"359222e2",13:"8ef71c24",14:"a77265c6",15:"0df7bb4f",16:"2f687bda",17:"36b5862d",18:"4ee34538",19:"8d1b5cd2",20:"88919d56",21:"f12535f5",22:"3a4f013b",23:"e20e6fe5",24:"0c75e477",25:"2715c86a",26:"f689f4ff",27:"9eac5545",28:"218402b1",29:"d164b34d",30:"d7b6bbee",31:"c9757503",32:"9e4c1908",33:"0ffb5433",34:"1f8aa86b",35:"2e2bb913",36:"7cc75b4d",37:"142a8e55",38:"97adc456",39:"4f7dc250",40:"473ea752",41:"1352615b",42:"338900e6",43:"d550ccfd",44:"39a6fa44",45:"05e78be6",46:"936e0c84",47:"e6318602",48:"1e97a5e6",49:"f26bc776",50:"be0fe317",51:"e5dd50d6",52:"ae49f940",53:"0a08da0b",54:"cbb3456d",55:"3480cbd7",56:"c3efd62c",57:"2e597e87",58:"9a608d53",59:"850b0f03",60:"0563fbe5",61:"f77bcc99",62:"939014ac",63:"3d5a824f",64:"ef868a16",65:"d3131335",66:"524d7fde",67:"94a2baf6",68:"7b2ebe5b",69:"644ee89c",70:"944341b8",71:"3b925ad6",72:"b7f11c3e",73:"f0548658",74:"5b3af3ee",75:"b4829326",76:"7f214b85",77:"cc79cb5a",78:"366eb481",79:"541e3534",80:"19b17aa5",82:"35291a16"}[i]+".chunk.js",d=function(e){r.onerror=r.onload=null,clearTimeout(n);var c=b[i];if(0!==c){if(c){var f=e&&("load"===e.type?"missing":e.type),d=e&&e.target&&e.target.src,t=new Error("Loading chunk "+i+" failed.\n("+f+": "+d+")");t.type=f,t.request=d,c[1](t)}b[i]=void 0}};var n=setTimeout(function(){d({type:"timeout",target:r})},12e4);r.onerror=r.onload=d,t.appendChild(r)}return Promise.all(e)},l.m=o,l.c=f,l.d=function(e,c,f){l.o(e,c)||Object.defineProperty(e,c,{enumerable:!0,get:f})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(c,e){if(1&e&&(c=l(c)),8&e)return c;if(4&e&&"object"==typeof c&&c&&c.__esModule)return c;var f=Object.create(null);if(l.r(f),Object.defineProperty(f,"default",{enumerable:!0,value:c}),2&e&&"string"!=typeof c)for(var d in c)l.d(f,d,function(e){return c[e]}.bind(null,d));return f},l.n=function(e){var c=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(c,"a",c),c},l.o=function(e,c){return Object.prototype.hasOwnProperty.call(e,c)},l.p="/",l.oe=function(e){throw console.error(e),e};var c=window.webpackJsonp=window.webpackJsonp||[],d=c.push.bind(c);c.push=e,c=c.slice();for(var t=0;t<c.length;t++)e(c[t]);var s=d;u()}([])</script><script src="/static/js/81.a3a8fb7b.chunk.js"></script><script src="/static/js/main.ad270093.chunk.js"></script></body></html>
